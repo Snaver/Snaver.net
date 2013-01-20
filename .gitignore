@@ -12,3 +12,14 @@ wp-content/cache/
 wp-content/backups/
 sitemap.xml
 sitemap.xml.gz
+
+#ignore eclipse project files
+.buildpath
+.project
+.settings/
+
+#ignore PhpStorm project files
+.idea/
+
+#ignore the backup 'orig' files produced by kdiff
+*.orig

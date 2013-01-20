@@ -1,0 +1,270 @@
+@charset "utf-8";
+/*
+Theme Name: Snaver.net
+Theme URI: http://www.snaver.net
+Description: This is the theme for Snaver.net
+Version: 1.0
+Author: Snave
+Author URI: http://www.snaver.net
+
+*/
+
+/* CSS Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0
+}
+
+/* HTML5 Elements reset */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display:block
+}
+
+ol, ul {
+	list-style:none
+}
+blockquote, q {
+	quotes:none
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content:'';
+	content:none
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0
+}
+*:focus {
+	outline:none
+}
+html, body {
+	height:100%;
+	overflow:
+}
+
+/* apply a natural box layout model to all elements - thanks paul. */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.clearfix { *zoom: 1; }
+.clearfix:after { content: " ";	display: block;	clear: both; visibility: hidden; font-size: 0; height: 0; }
+
+a {
+	text-decoration:none
+}
+a:hover {
+	text-decoration:underline
+}
+
+html {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	background:url(img/bg.png) repeat 0 0;
+}
+
+/* Wordpress Stuff */
+.alignright { float:right; margin-left:5px; margin-bottom:5px; }
+.alignleft { float:left; margin-right:5px; margin-bottom:5px; }
+#wpstats { display:none; visibility:hidden; }
+
+/* CSS Sticky Footer */
+#content {
+	min-height: 100%;
+	width:90%;
+	margin:0 auto;
+}
+#main {
+	/*overflow:auto;*/
+	padding-bottom: 30px;
+}  /* must be same height as the footer */
+#footer { 
+	position: relative; 
+	margin-top: -30px; /* negative value of footer height */ 
+	height: 30px; 
+	clear:both;
+	font-size:0.7em;
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	color:#cccccc
+}
+#footer a {
+	color:#cccccc
+}
+/*Opera Fix - thanks to Maleika (Kohoutec)*/
+body:before { content:""; height:100%; float:left; width:0; margin-top:-32767px;/* thank you Erik J - negate effect of float*/ }
+
+#container {
+	height:100%;
+	min-width: 956px;
+	max-width: 2056px;
+}
+
+#primary { margin-right:275px; padding-top:50px }
+#secondary { float:right; width:250px; padding-top:50px }
+
+#aside { 
+	width:200px;
+	float:left;
+	position:fixed;
+	padding:50px 0 0 0;
+	background-color:#272727;
+	height:100%;
+	text-align:center;
+	color:#cccccc;
+	-moz-box-shadow:    3px 3px 15px 10px #dcdcdc;
+ 	-webkit-box-shadow: 3px 3px 15px 10px #dcdcdc;
+ 	box-shadow:         3px 3px 15px 10px #dcdcdc;
+}
+#aside #site-title span a {
+	color:#FFF
+}
+#site-description {
+	padding:18px 5px;
+	font-size:0.8em
+}
+#aside ul.menu li {
+	border-top: 1px solid #323232;
+	border-bottom: 1px solid #1B1B1B;
+}
+#aside ul.menu li a {
+	display:block;
+	min-height:28px;
+	width:100%;
+	line-height:28px;
+	position:relative;
+	margin:0;
+	padding:0 5px 0 10px;
+	background:#272727;
+	background-image:-moz-linear-gradient(top,#292929 0,#252525 100%);
+	background-image:-ms-linear-gradient(top,#292929 0,#252525 100%);
+	background-image:-o-linear-gradient(top,#292929 0,#252525 100%);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#292929),color-stop(100%,#252525));
+	background-image:-webkit-linear-gradient(top,#292929 0,#252525 100%);background-image:linear-gradient(to bottom,#292929 0,#252525 100%);
+	color:#fff;
+	font-size:0.7em;
+	border-right:4px solid transparent;
+	cursor:pointer;
+	-moz-transition:border 0.2s ease;
+	-ms-transition:border 0.2s ease;
+	-o-transition:border 0.2s ease;
+	-webkit-transition:border 0.2s ease;
+	transition:border 0.2s ease
+}
+#aside ul.menu li a:hover, #aside ul.menu li.current_page_item a {
+	border-right-color:#666;
+	text-decoration:none;
+	background:#1c1c1c
+}
+
+#main {
+	margin-left:225px; /* Width of aside + padding space */
+}
+
+/* Posts */
+.post {
+	padding:10px;
+	margin-bottom:20px;
+	background-color:#FFF;
+	font-size:0.875em;
+	-moz-box-shadow:    3px 3px 15px 10px #dcdcdc;
+ 	-webkit-box-shadow: 3px 3px 15px 10px #dcdcdc;
+ 	box-shadow:         3px 3px 15px 10px #dcdcdc;
+}
+.post h2.title {
+	margin:0 0 5px 0
+}
+.post h2, .post h3, .post h4, .post h5, .post h6 {
+	margin:8px 0
+}
+.post .post-info-top {
+	margin-bottom:10px
+}
+.post .post-info-top .gotocomments {
+	float:right
+}
+.post .the_content p {
+	margin:7px 0
+}
+.post .the_content {
+	margin-bottom:10px;
+	line-height:1.45em
+}
+.post a { 
+	color:#333
+}
+
+/* Widgets */
+.widget {
+	padding:10px;
+	margin-bottom:15px;
+	background-color:#FFF;
+	font-size:0.875em;
+	-moz-box-shadow:    3px 3px 15px 10px #dcdcdc;
+ 	-webkit-box-shadow: 3px 3px 15px 10px #dcdcdc;
+ 	box-shadow:         3px 3px 15px 10px #dcdcdc;
+}
+
+/* Comments */
+#respond { padding:10px 10px 0 10px }
+h3#comments{ height:25px;line-height:25px;text-align:left } 
+ol.commentlist {
+	padding:10px;
+	margin-bottom:20px;
+	background-color:#FFF;
+	font-size:0.875em;
+	-moz-box-shadow:    3px 3px 15px 10px #dcdcdc;
+ 	-webkit-box-shadow: 3px 3px 15px 10px #dcdcdc;
+ 	box-shadow:         3px 3px 15px 10px #dcdcdc;
+}
+ol.commentlist li { padding-bottom:10px; position:relative }
+ol.commentlist li > div > p { padding-left:5px; margin-bottom:10px }
+ol.commentlist li div.reply{ position:absolute; top:0; right:0 } 
+
+h3#comments,.comment-navigation,.comment-navigation:after,#respond:after,.comment-rss{display:block} 
+ol.commentlist{width:100%} 
+
+ol.commentlist,li.authorcomment,li.comment,#respond h3,form#commentform,input#submit{margin:0}
+ol.commentlist{border-bottom:1px solid #ccc} 
+ol.commentlist ul{margin:0 0 0 20px} 
+li.authorcomment,li.comment,form#commentform textarea,form#commentform input{border:1px solid #ccc}
+li.authorcomment,li.comment{list-style:none;border-bottom:none} 
+li.even{background:#fff} 
+li.odd{background:#efefef} 
+.authorcomment{background:#deebf9} 
+ul.children ul{margin-left:20px} 
+ul.children li{border-right:none} 
+.vcard img{float:left;background:#c4c4c4} 
+.vcard img,.comment-navigation .newer a,.comment-navigation .older a{margin-right:5px} 
+.comment-meta { margin-bottom:10px }
+.comment-meta,ol.commentlist li small,p.subscribe-to-comments label{position:relative} 
+.comment-meta,ol.commentlist li small{} 
+.comment-text{margin:0 10px 0 0} 
+.reply,.comment-navigation .newer,input#submit{float:right} 
+.reply,.comment-navigation .newer a,.comment-navigation .older a,input#submit{background:#4c7faa} 
+
+a.comment-reply-link,.reply a:link,
+.comment-navigation .newer a,.comment-navigation .older a,input#submit{display:inline-block;text-align:center;cursor:pointer;color:#fff} 
+a.comment-reply-link,.reply a:link{padding:5px 0} a.comment-reply-link,.reply a:link,input#submit{width:70px} 
+a.comment-reply-link:hover,.reply a:hover,.comment-navigation .newer a:hover,
+.comment-navigation .older a:hover,input#submit:hover{background:#e7e7e7;text-decoration:none;color:#4c7faa;font-weight:bold} 
+a.comment-reply-link:hover,.reply a:hover,input#submit:hover{width:68px} 
+a.comment-reply-link:hover,.reply a:hover{padding:4px 0} 
+a.comment-reply-link:hover,.reply a:hover,.comment-navigation .newer a:hover,.comment-navigation .older a:hover{border:1px solid #4c7faa} 
+.comment-navigation{margin:10px 0 10px 0} .comment-navigation:after,#respond:after{content:".";height:0;visibility:hidden} 
+.clear{clear:both} 
+.comment-navigation .newer a:hover,.comment-navigation .older a:hover{padding:4px} 
+form#commentform textarea,form#commentform input{padding:2px 3px} 
+form#commentform textarea{width:442px} 
+input#submit{padding:5px 0 !important;border:0 !important} 
+input#submit,p.subscribe-to-comments input{outline:0} 
+input#submit:hover{padding:4px 0 !important;border:1px solid #4c7faa !important} 
+p.subscribe-to-comments{background:url('images/email_32.png') no-repeat} 
+p.subscribe-to-comments,.comment-rss{height:32px;text-indent:42px;padding:5px 0 0 0} 
+p.subscribe-to-comments input{margin:5px 3px 3px 3px !important;border:0} 
+p.subscribe-to-comments label{top:-2px;color:#666} 
+.comment-rss{background:url('images/rss_32.png') no-repeat} 
+ 
+/*comment total stlying*/ 
+.comment-total{text-align: center;font-size: 1.5em;color: #fff;}
+.comment-total span{font-size: 2em;color: #800000;}
