@@ -46,6 +46,50 @@
             )
         );
 
+        // Halo Archive Files
+        register_post_type(
+            'halo_mods',
+            array(
+                'labels'        =>	array(
+                    'name'			=>	__( 'Halo Modding Files Archive' ),
+                    'menu_name'		=>	__( 'Halo Mods' ),
+                    'singular_name'	=>	__( 'Halo Mod' )
+                ),
+                'description'   =>  'Random Halo Mods and Map Packs',
+                'menu_icon'     =>  '',
+                'exclude_from_search'	=>	false,
+                'publicly_queryable'    =>  true,
+                'public'		=>  true,
+                'supports'		=>  array( 'title', 'editor' ),
+                'rewrite'       =>  array(
+                    'slug'          =>  'halo/mods',
+                    'with_front'    =>  false
+                )
+            )
+        );
+
+        // Halo Photography
+        register_post_type(
+            'halo_photography',
+            array(
+                'labels'        =>	array(
+                    'name'			=>	__( 'Halo Photography' ),
+                    'menu_name'		=>	__( 'Halo Photography' ),
+                    'singular_name'	=>	__( 'Halo Photography' )
+                ),
+                'description'   =>  'Halo Photography Galleries',
+                'menu_icon'     =>  '',
+                'exclude_from_search'	=>	false,
+                'publicly_queryable'    =>  true,
+                'public'		=>  true,
+                'supports'		=>  array( 'title', 'editor' ),
+                'rewrite'       =>  array(
+                    'slug'          =>  'halo/photography',
+                    'with_front'    =>  false
+                )
+            )
+        );
+
     }
     add_action( 'init', 'create_post_types' );
 
