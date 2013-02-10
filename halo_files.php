@@ -1,12 +1,6 @@
 <?php
 /**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Template Name: Halo Files
  *
  * @package Snaver
  */
@@ -20,9 +14,9 @@ get_header();
             <?php while ( have_posts() ) : the_post(); ?>
                 <article id="post-<? the_ID(); ?>" class="post clearfix">
                     <header>
-                        <h2 class="title">
+                        <h1 class="title">
                             <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
-                        </h2>
+                        </h1>
                         <div class="post-info-top">
                             <span class="post-info-date">Posted by <?php the_author(); ?> on <time class="updated" datetime="<?=get_the_time('Y-m-j');?>" pubdate><?=get_the_time(get_option('date_format'));?></time> <?php edit_post_link('Edit', '[', ']'); ?></span>
                             <span class="gotocomments"><?php comments_popup_link('0 comments', '1 comment', '% comments'); ?><?php if(function_exists('the_views')) { echo " | ";the_views(); } ?></span>

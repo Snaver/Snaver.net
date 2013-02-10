@@ -27,16 +27,23 @@
     })();
 
 </script>
-<div id="container">
-	<div id="content" class="clearfix">
-        <header id="aside" role="banner">
-                <hgroup>
-                    <h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
-                    <p id="site-description"><?php bloginfo( 'description' ); ?></p>
-                </hgroup>
-                
-                <nav id="nav" role="navigation">
-                    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => null ) ); ?>
-                </nav><!-- #nav -->
-        </header><!-- #header -->    
-        <div id="main">
+<div id="container" class="clearfix">
+    <div id="aside">
+        <header role="banner">
+            <hgroup>
+                <<?=(is_home() ? 'h1' : 'span');?> id="site-title">
+                    <span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+                </<?=(is_home() ? 'h1' : 'span');?>>
+                <p id="site-description"><?php bloginfo( 'description' ); ?></p>
+            </hgroup>
+
+            <nav id="nav" role="navigation">
+                <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => null ) ); ?>
+            </nav><!-- #nav -->
+        </header><!-- #header -->
+        <div id="footer">
+            &copy; <?=date('Y');?> <a href="http://www.snaver.net/">Snaver.net</a><br />
+            <a rel="generator" title="Semantic Personal Publishing Platform" href="http://wordpress.org/">Proudly powered by WordPress</a>
+        </div>
+    </div>
+    <div id="main" class="clearfix">
