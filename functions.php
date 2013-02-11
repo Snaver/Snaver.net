@@ -39,10 +39,8 @@
                 'halo_photography'
             ),
             array(
-                'label'     => __( 'Halo Games' ),
-                'rewrite'   => array(
-                    'slug' => 'halo/photography'
-                )
+                'label' => __( 'Halo Games' ),
+                'show_admin_column' => true
             )
         );
 
@@ -54,7 +52,7 @@
             ),
             array(
                 'label' => __( 'Halo Platforms' ),
-                //'rewrite' => array( 'slug' => 'person' )
+                'show_admin_column' => true
             )
         );
 
@@ -82,7 +80,7 @@
                     'menu_name'		=>	__( 'Halo Mods' ),
                     'singular_name'	=>	__( 'Halo Mod' )
                 ),
-                'description'   =>  'Random Halo Mods and Map Packs',
+                'description'   =>  'Random Halo Mods, Utilities and Map Packs',
                 'menu_icon'     =>  '',
                 'has_archive'   =>  true,
                 'exclude_from_search'	=>	false,
@@ -133,32 +131,45 @@
     }
     add_action( 'init', 'snaver_init' );
 
-    function wptuts_custom_tags() {
+    function halo_custom_rewrites() {
+        add_rewrite_rule('^halo/photography/([^/]+)/?$','index.php?halo_games=$matches[1]&post_type=halo_photography','top');
         add_rewrite_rule("^halo/photography/([^/]+)/([^/]+)/?",'index.php?post_type=halo_photography&halo_photography=$matches[2]&halo_games=$matches[1]','top');
-    }
-    add_action('init','wptuts_custom_tags');
 
-    function wptuts_book_link( $post_link, $id = 0 ) {
+
+        add_rewrite_rule('^halo/mods/([^/]+)/?$','index.php?halo_games=$matches[1]&post_type=halo_mods','top');
+        add_rewrite_rule("^halo/mods/([^/]+)/([^/]+)/?",'index.php?post_type=halo_mods&halo_mods=$matches[2]&halo_games=$matches[1]','top');
+
+    }
+    add_action('init','halo_custom_rewrites');
+
+    function halo_custom_perm_link( $post_link, $id, $leavename, $sample ) {
 
         $post = get_post($id);
 
-        if ( is_wp_error($post) || 'halo_photography' != $post->post_type || empty($post->post_name) )
+        if ( (is_wp_error($post) || empty($post->post_name)) && ($post->post_type != 'halo_photography' || $post->post_type != 'halo_mods') )
             return $post_link;
 
-        // Get the genre:
-        $terms = get_the_terms($post->ID, 'halo_games');
+        // Get the games
+        $games = get_the_terms($post->ID, 'halo_games');
 
-        if( is_wp_error($terms) || !$terms ) {
-            $genre = 'uncategorised';
+        if( is_wp_error($games) || !$games ) {
+            $game = 'uncategorised';
         }
         else {
-            $genre_obj = array_pop($terms);
-            $genre = $genre_obj->slug;
+            $game_obj = array_pop($games);
+            $game = $game_obj->slug;
         }
 
-        return home_url(user_trailingslashit( "halo/photography/$genre/$post->post_name" ));
+        switch($post->post_type){
+            case "halo_photography":
+                return home_url(user_trailingslashit( "halo/photography/$game/$post->post_name" ));
+            break;
+            case "halo_mods":
+                return home_url(user_trailingslashit( "halo/mods/$game/$post->post_name" ));
+            break;
+        }
     }
-    add_filter( 'post_type_link', 'wptuts_book_link' , 10, 2 );
+    add_filter( 'post_type_link', 'halo_custom_perm_link' , 10, 2 );
 
     // Removes this <meta name="generator" content="WordPress x.x.x" /> from being in the header (Security risk)
     remove_action('wp_head', 'wp_generator');
