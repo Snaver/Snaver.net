@@ -38,14 +38,15 @@ table {
 	outline:none
 }
 html, body {
-	height:100%
+	height:100%;
+    width:100%;
 }
 
 /* apply a natural box layout model to all elements - thanks paul. */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-.clearfix { *zoom: 1; }
-.clearfix:after { content: " ";	display: block;	clear: both; visibility: hidden; font-size: 0; height: 0; }
+.clearfix { *zoom:1 }
+.clearfix:after { content:" "; display:block; clear:both; visibility:hidden; font-size:0; height:0 }
 
 a {
 	text-decoration:none
@@ -61,15 +62,21 @@ html {
 }
 
 #container {
-	min-height: 100%;
-	width:90%;
+	min-height:400px;
+    max-height:100%;
+    /*min-width:960px;*/
+    max-width:2200px;
+	width:94%;
 	margin:0 auto;
+    position:relative;
 }
 
 #aside {
     width:200px;
     float:left;
     position:fixed;
+    top:0;
+    bottom:0;
     padding:50px 0 0 0;
     background-color:#272727;
     height:100%;
@@ -125,7 +132,7 @@ h1#site-title, span#site-title {
 }
 
 #main {
-    margin-left:225px; /* Width of aside + padding space */
+    padding-left:225px; /* Width of aside + padding space */
 	padding-bottom:30px
 }
 
@@ -134,9 +141,25 @@ h1#site-title, span#site-title {
     width:70%;
     padding-top:50px
 }
+#primary.fullWidth {
+    width:100%
+}
+
+#masonry a {
+    width:auto;
+    height:auto;
+    float: left;
+    display: block;
+}
+#masonry a img {
+    float:left;
+    padding:5px;
+}
+
 #secondary {
     float:right;
-    width:250px;
+    max-width:400px;
+    width:28%;
     padding-top:50px
 }
 
@@ -160,6 +183,7 @@ h1#site-title, span#site-title {
 	margin-bottom:20px;
 	background-color:#FFF;
 	font-size:0.875em;
+    overflow:hidden;
 	-moz-box-shadow:    3px 3px 15px 10px #dcdcdc;
  	-webkit-box-shadow: 3px 3px 15px 10px #dcdcdc;
  	box-shadow:         3px 3px 15px 10px #dcdcdc;
@@ -193,6 +217,7 @@ h1#site-title, span#site-title {
 	margin-bottom:15px;
 	background-color:#FFF;
 	font-size:0.875em;
+    overflow:hidden;
 	-moz-box-shadow:    3px 3px 15px 10px #dcdcdc;
  	-webkit-box-shadow: 3px 3px 15px 10px #dcdcdc;
  	box-shadow:         3px 3px 15px 10px #dcdcdc;
@@ -265,3 +290,57 @@ p.subscribe-to-comments label{top:-2px;color:#666}
 /*comment total stlying*/ 
 .comment-total{text-align: center;font-size: 1.5em;color: #fff;}
 .comment-total span{font-size: 2em;color: #800000;}
+
+/* Between Portrait Tablet/Landscape Tablet - Nothing Above Desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    #primary { width:100% }
+    #secondary { display:none; visibility:hidden }
+}
+
+/* Anything Below Portrait Tablet */
+@media (max-width: 767px) {
+    #primary { width:100% }
+    #secondary { display:none; visibility:hidden }
+}
+
+/* Above Desktop Only */
+@media (min-width: 960px) {
+
+}
+
+/* Anything Below Landscape iPhone5 */
+@media (max-width: 568px) {
+    #wpadminbar { display:none; visibility:hidden }
+
+    #aside { position:relative; float:none; width:100% }
+    #nav { display:none; visibility:hidden }
+    #footer { display:none; visibility:hidden }
+    #main { width:100%; float:none; padding:0 }
+    #primary { padding-top:15px; float:none }
+
+    .navigation.paging-navigation { padding-bottom:15px }
+}
+
+/* Between mobile landscape and portrait tablet  */
+@media (min-width: 560px ) and (max-width: 767px) {
+
+}
+
+@media (min-width: 768px ) and (max-width: 979px) {
+
+}
+
+/* Mobile Portrait Only */
+@media (min-width: 300px) and (max-width: 419px) {
+
+}
+
+/* Mobile landscape Only */
+@media (min-width: 420px) and (max-width: 767px) {
+
+}
+
+/* Anything up to Desktop */
+@media (max-width: 979px) {
+
+}

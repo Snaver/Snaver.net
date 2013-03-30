@@ -37,6 +37,8 @@ get_header();
                 </article>
             <?php endwhile; ?>
 
+            <?php get_template_part( 'navigation', 'index' ); ?>
+
         <?php else : ?>
 
             <article id="post-0" class="post no-results not-found">
