@@ -114,7 +114,7 @@
                 'exclude_from_search'	=>	true,
                 'publicly_queryable'    =>  false,
                 'public'		=> true,
-                'supports'		=> array( 'title', 'editor' )
+                'supports'		=> array( 'title', 'editor', 'thumbnail', 'custom-fields' )
             )
         );
 
