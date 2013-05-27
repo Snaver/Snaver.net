@@ -223,6 +223,10 @@ h1#site-title, span#site-title {
  	box-shadow:         3px 3px 15px 10px #dcdcdc;
 }
 
+#widget_halo_photos li a { display:block; width:auto; height:auto; margin-bottom:10px }
+#widget_halo_photos li:last-child a { margin-bottom:0px }
+#widget_halo_photos li a img { display:block; width:100% }
+
 .alignright { float:right; margin-left:5px; margin-bottom:5px; }
 .alignleft { float:left; margin-right:5px; margin-bottom:5px; }
 #wpstats { display:none; visibility:hidden; }

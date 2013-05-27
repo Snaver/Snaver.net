@@ -1,5 +1,9 @@
 <?php
 
+    // Include our custom widgets
+    require_once(get_theme_root()."/snaver/widgets/random_halo_photography.php");
+    add_action( 'widgets_init', create_function( '', 'register_widget( "snaver_random_halo_photography" );' ) );
+
     function load_scripts_styles() {
 
         wp_enqueue_script( 'site', get_template_directory_uri().'/js/site.js' , array('jquery'), '1', true );
