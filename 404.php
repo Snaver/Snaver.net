@@ -6,7 +6,7 @@ if($url){
     $the_query = new WP_Query(array(
         'post_type' => 'attachment',
         'post_status' => 'inherit',
-        's'         => '+'.(string)$url
+        's'         => '+'.(string)urldecode($url)
     ));
 
     if($the_query->have_posts()){
