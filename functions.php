@@ -15,6 +15,8 @@
     }
     add_action('wp_enqueue_scripts', 'load_scripts_styles');
 
+    add_theme_support('post-thumbnails');
+
 	// Homepage widget area
 	register_sidebar( array(
 		'name' => __( 'Main Sidebar', 'snaver' ),
@@ -118,7 +120,7 @@
                 'exclude_from_search'	=>	true,
                 'publicly_queryable'    =>  false,
                 'public'		=> true,
-                'supports'		=> array( 'title', 'editor', 'thumbnail', 'custom-fields' )
+                'supports'		=> array( 'title', 'editor', 'slug', 'thumbnail', 'custom-fields' )
             )
         );
 
@@ -137,7 +139,7 @@
                 'exclude_from_search'	=>	false,
                 'publicly_queryable'    =>  true,
                 'public'		=>  true,
-                'supports'		=>  array( 'title', 'editor' ),
+                'supports'		=>  array( 'title', 'editor', 'slug', 'thumbnail', 'custom-fields' ),
                 'taxonomies'    =>  array(
                     'halo_games',
                     'halo_platforms',
@@ -167,7 +169,7 @@
                 'exclude_from_search'	=>	false,
                 'publicly_queryable'    =>  true,
                 'public'		=>  true,
-                'supports'		=>  array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+                'supports'		=>  array( 'title', 'editor', 'slug', 'thumbnail', 'custom-fields' ),
                 'taxonomies'    =>  array(
                     'halo_games',
                     'halo_platforms',
